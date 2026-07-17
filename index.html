@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunjari Anoogna | Portfolio</title>
+    <!-- Favicon using SVG Data URI with GA Initials -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ea580c'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='40' font-weight='bold' fill='%23ffffff'%3EGA%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#f97316',
+                            500: '#ea580c',
+                            600: '#ca8a04',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            950: '#0b0f19', 
+                            900: '#111827',
+                            850: '#161d30', 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .timeline-line {
+            background: linear-gradient(to bottom, #ea580c 0%, #ca8a04 50%, #161d30 100%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ea580c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c2410c;
+        }
+    </style>
+</head>
+<body class="bg-brand-950 text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-950/80 backdrop-blur-md border-b border-slate-800/60 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#hero" class="font-display font-bold text-xl tracking-wider text-brand-400">
+                GA<span class="text-slate-400 font-normal">.dev</span>
+            </a>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="text-slate-300 hover:text-brand-400 transition-colors">About</a>
+                <a href="#journey" class="text-slate-300 hover:text-brand-400 transition-colors">My Journey</a>
+                <a href="#skills" class="text-slate-300 hover:text-brand-400 transition-colors">Skills</a>
+                <a href="#projects" class="text-slate-300 hover:text-brand-400 transition-colors">Projects</a>
+                <a href="#contact" class="text-slate-300 hover:text-brand-400 transition-colors">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center">
+                <a href="#contact" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wider text-brand-950 bg-brand-400 hover:bg-brand-300 rounded-full transition-all duration-300 font-display uppercase">
+                    Let's Connect
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-950/95 border-b border-slate-800/80 px-4 pt-2 pb-4 space-y-3">
+            <a href="#about" class="block text-slate-300 hover:text-brand-400 py-2 text-base font-medium">About</a>
+            <a href="#journey" class="block text-slate-300 hover:text-brand-400 py-2 text-base font-medium">My Journey</a>
+            <a href="#skills" class="block text-slate-300 hover:text-brand-400 py-2 text-base font-medium">Skills</a>
+            <a href="#projects" class="block text-slate-300 hover:text-brand-400 py-2 text-base font-medium">Projects</a>
+            <a href="#contact" class="block text-slate-300 hover:text-brand-400 py-2 text-base font-medium">Contact</a>
+            <a href="#contact" class="block text-center w-full px-4 py-2 text-sm font-semibold text-brand-950 bg-brand-400 hover:bg-brand-300 rounded-lg">Let's Connect</a>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-6 text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-850 border border-brand-500/30 rounded-full w-fit">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-wider text-brand-300 font-display uppercase">Open to Opportunities</span>
+                </div>
+                <h1 class="font-display text-4xl sm:text-6xl font-bold text-slate-100 tracking-tight leading-none">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-yellow-500">Gunjari Anoogna</span>
+                </h1>
+                <p class="font-display text-lg sm:text-2xl font-medium text-slate-300">
+                    Computer Science Student & Summer Research Intern at IIT Ropar
+                </p>
+                <p id="about" class="text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed">
+                    I am a Computer Science student with a strong foundation in Data Structures, Algorithms, and core computer science subjects. I enjoy designing elegant solutions, writing robust code, and creating dynamic intelligent learning assistants.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#journey" class="px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white font-semibold rounded-lg font-display transition-all duration-300 shadow-lg shadow-brand-500/20 flex items-center gap-2">
+                        Explore My Journey <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#contact" class="px-6 py-3 bg-brand-850 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold rounded-lg font-display transition-all duration-300 flex items-center gap-2">
+                        Get In Touch <i data-lucide="mail" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-yellow-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-2 border-slate-800 bg-brand-850">
+                        <!-- Custom smart fallback to check both custom naming and raw original name -->
+                        <img src="photo.jpg" alt="Gunjari Anoogna" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='WhatsApp Image 2026-07-17 at 10.15.54 AM.jpeg'; this.addEventListener('error', function(){ this.src='https://placehold.co/400x400/161d30/ffffff?text=GA'; })">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="py-24 bg-brand-900/40 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-100 mb-4">My Professional Journey</h2>
+                <p class="text-slate-400 max-w-lg mx-auto">A vertical view of my academic milestones, hands-on internships, and engineering projects.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Central Axis Line -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 timeline-line transform -translate-x-1/2 rounded-full"></div>
+
+                <!-- Timeline Step 1: IIT Ropar Internship -->
+                <div class="timeline-item relative mb-16 md:mb-24 opacity-0 transform translate-y-10 transition-all duration-700 ease-out">
+                    <div class="flex flex-col md:flex-row items-stretch">
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-brand-500 border-4 border-brand-950 transform -translate-x-1/2 flex items-center justify-center z-10 shadow-lg shadow-brand-500/50">
+                            <i data-lucide="briefcase" class="w-3.5 h-3.5 text-white"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right">
+                            <span class="inline-block text-xs font-bold text-brand-400 uppercase tracking-wider mb-2">May 2026 - July 2026</span>
+                            <h3 class="font-display text-xl font-bold text-slate-100">Summer Research Intern</h3>
+                            <h4 class="text-brand-300 font-medium text-sm mt-0.5">IIT Ropar (Vicharanashala Lab for Education Design)</h4>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-12 mt-4 md:mt-0">
+                            <div class="bg-brand-850 border border-slate-800 p-6 rounded-xl hover:border-brand-500/40 transition-colors">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                                    Selected for the prestigious NPTEL Summer Internship program under **Prof. Sudarshan Iyengar**. Contributed as an active software developer on live repositories targeting real India-centric educational problems.
+                                </p>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-brand-500/10 text-brand-300 text-xs font-medium">
+                                    <i data-lucide="link" class="w-3 h-3"></i> Virtual Intern (8 Weeks)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Step 2: B.Tech CSE (GCET) -->
+                <div class="timeline-item relative mb-16 md:mb-24 opacity-0 transform translate-y-10 transition-all duration-700 ease-out">
+                    <div class="flex flex-col md:flex-row items-stretch">
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-yellow-500 border-4 border-brand-950 transform -translate-x-1/2 flex items-center justify-center z-10 shadow-lg shadow-yellow-500/50">
+                            <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-white"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right md:order-last">
+                            <span class="inline-block text-xs font-bold text-brand-400 uppercase tracking-wider mb-2">2023 - 2027</span>
+                            <h3 class="font-display text-xl font-bold text-slate-100">B.Tech in Computer Science</h3>
+                            <h4 class="text-brand-300 font-medium text-sm mt-0.5">Geethanjali College of Engineering and Technology</h4>
+                        </div>
+                        <div class="w-full md:w-1/2 pr-0 md:pr-12 pl-12 md:pl-0 mt-4 md:mt-0">
+                            <div class="bg-brand-850 border border-slate-800 p-6 rounded-xl hover:border-yellow-500/40 transition-colors">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                                    Building a solid foundation in core Computer Science principles, including Object-Oriented Programming, Database Management, and Systems Architecture.
+                                </p>
+                                <div class="flex items-center gap-2">
+                                    <span class="px-2.5 py-1 rounded bg-yellow-500/10 text-yellow-500 text-xs font-semibold">
+                                        CGPA: 8.5
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Step 3: Pre-University Course (RGUKT Basar) -->
+                <div class="timeline-item relative mb-16 md:mb-24 opacity-0 transform translate-y-10 transition-all duration-700 ease-out">
+                    <div class="flex flex-col md:flex-row items-stretch">
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-brand-500 border-4 border-brand-950 transform -translate-x-1/2 flex items-center justify-center z-10 shadow-lg shadow-brand-500/50">
+                            <i data-lucide="school" class="w-3.5 h-3.5 text-white"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right">
+                            <span class="inline-block text-xs font-bold text-brand-400 uppercase tracking-wider mb-2">2021 - 2023</span>
+                            <h3 class="font-display text-xl font-bold text-slate-100">Pre-University Course</h3>
+                            <h4 class="text-brand-300 font-medium text-sm mt-0.5">RGUKT, Basar</h4>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-12 mt-4 md:mt-0">
+                            <div class="bg-brand-850 border border-slate-800 p-6 rounded-xl hover:border-brand-500/40 transition-colors">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                                    Completed intensive higher secondary level coursework with focus on Mathematics, Physics, and foundational computing skills.
+                                </p>
+                                <span class="px-2.5 py-1 rounded bg-brand-500/10 text-brand-300 text-xs font-semibold">
+                                    CGPA: 9.47
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-brand-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-100 mb-4">Core Competencies</h2>
+                <p class="text-slate-400 max-w-lg mx-auto">Structured overview of programming languages, development technologies, and academic skills.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Skill Group 1: Programming -->
+                <div class="bg-brand-850 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500/10 border border-brand-500/30 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="code-2" class="w-6 h-6 text-brand-400"></i>
+                        </div>
+                        <h3 class="font-display text-lg font-bold text-slate-100 mb-4">Programming Languages</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">Proficient in crafting clean, object-oriented, and highly efficient code in multiple backend paradigms.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">Java</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">Python</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">C Programming</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group 2: Web Technologies -->
+                <div class="bg-brand-850 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-yellow-500/10 border border-yellow-500/30 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="globe" class="w-6 h-6 text-yellow-500"></i>
+                        </div>
+                        <h3 class="font-display text-lg font-bold text-slate-100 mb-4">Web Development</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">Experienced in assembling interactive client environments and dynamic web service applications.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">React.js</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">Node.js</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">JavaScript</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">Tailwind CSS</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">HTML & CSS</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group 3: Core CS & DB -->
+                <div class="bg-brand-850 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500/10 border border-brand-500/30 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="database" class="w-6 h-6 text-brand-400"></i>
+                        </div>
+                        <h3 class="font-display text-lg font-bold text-slate-100 mb-4">Core Computer Science</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">Solid core foundational base built through highly rigorous engineering coursework and certifications.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">DSA</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">MySQL</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">DBMS</span>
+                        <span class="px-3 py-1.5 bg-brand-900 border border-slate-800 text-slate-200 rounded-lg text-xs font-medium">Flask</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-brand-900/40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-100 mb-4">Featured Projects</h2>
+                <p class="text-slate-400 max-w-lg mx-auto">Demonstrating practical, end-to-end integration of deep learning, NLP, and robust web systems.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Project 1: GyanGuru -->
+                <div class="bg-brand-850 border border-slate-800 rounded-2xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold tracking-wider text-brand-400 uppercase">AI Learning Assistant</span>
+                            <div class="flex gap-2">
+                                <a href="https://github.com/AnoognaGunjari" target="_blank" class="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition-colors" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-100 mb-2">GyanGuru</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            AI-based ML learning assistant that delivers visual content, text, code, and audio tracking. Utilizes adaptive learning pathways based on tracking errors.
+                        </p>
+                    </div>
+                    <div class="p-6 border-t border-slate-800/80 bg-brand-950/20">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">Python</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">Flask</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">PyTorch</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">Scikit-learn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Connecto -->
+                <div class="bg-brand-850 border border-slate-800 rounded-2xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold tracking-wider text-brand-400 uppercase">Marketplace Platform</span>
+                            <div class="flex gap-2">
+                                <a href="https://github.com/AnoognaGunjari" target="_blank" class="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition-colors" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-100 mb-2">Connecto</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            A dynamic web marketplace connecting customers directly with technical and non-technical service providers, enabling interactive service requests.
+                        </p>
+                    </div>
+                    <div class="p-6 border-t border-slate-800/80 bg-brand-950/20">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">React.js</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">Tailwind CSS</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">JavaScript</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Campus Connector -->
+                <div class="bg-brand-850 border border-slate-800 rounded-2xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold tracking-wider text-brand-400 uppercase">AI Chatbot</span>
+                            <div class="flex gap-2">
+                                <a href="https://github.com/AnoognaGunjari" target="_blank" class="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition-colors" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-100 mb-2">Campus Connector</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Powered AI-chatbot generating instant informational resources using natural language processing (NLP) pipelines and integrated campus web scraping.
+                        </p>
+                    </div>
+                    <div class="p-6 border-t border-slate-800/80 bg-brand-950/20">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">Python</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">Flask</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">NLP</span>
+                            <span class="px-2 py-1 bg-brand-900 text-slate-300 rounded text-[10px] font-medium">Web Scraping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-24 bg-brand-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-100 mb-4">NPTEL Certifications</h2>
+                <p class="text-slate-400 max-w-lg mx-auto">Demonstrated excellence in national-level computer science assessments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cert 1 -->
+                <div class="bg-brand-850 border border-slate-800/80 p-6 rounded-2xl flex items-start gap-4">
+                    <div class="p-3 bg-brand-500/10 rounded-xl">
+                        <i data-lucide="award" class="w-6 h-6 text-brand-400"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block text-[10px] font-bold text-brand-300 bg-brand-500/10 px-2 py-0.5 rounded mb-2">Elite + Top 5%</span>
+                        <h3 class="font-display font-bold text-slate-100">Database Management System</h3>
+                        <p class="text-xs text-slate-400 mt-1">NPTEL | Score: 78%</p>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="bg-brand-850 border border-slate-800/80 p-6 rounded-2xl flex items-start gap-4">
+                    <div class="p-3 bg-brand-500/10 rounded-xl">
+                        <i data-lucide="award" class="w-6 h-6 text-brand-400"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block text-[10px] font-bold text-brand-300 bg-brand-500/10 px-2 py-0.5 rounded mb-2">Elite + Top 5%</span>
+                        <h3 class="font-display font-bold text-slate-100">Data Structures & Algorithms Design</h3>
+                        <p class="text-xs text-slate-400 mt-1">NPTEL | Score: 77%</p>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="bg-brand-850 border border-slate-800/80 p-6 rounded-2xl flex items-start gap-4">
+                    <div class="p-3 bg-brand-500/10 rounded-xl">
+                        <i data-lucide="award" class="w-6 h-6 text-brand-400"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block text-[10px] font-bold text-brand-300 bg-brand-500/10 px-2 py-0.5 rounded mb-2">Elite</span>
+                        <h3 class="font-display font-bold text-slate-100">The Joy of Computing using Python</h3>
+                        <p class="text-xs text-slate-400 mt-1">NPTEL | Score: 86%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-brand-900/40 border-t border-slate-850">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-100 mb-4">Get In Touch</h2>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Feel free to contact me for technical collaborations, educational software ideas, or internship inquiries. I would love to connect.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-850 border border-slate-800 flex items-center justify-center">
+                                <i data-lucide="mail" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-400 uppercase font-semibold">Primary Email</h4>
+                                <a href="mailto:23r11a0562@gcet.edu.in" class="text-slate-200 hover:text-brand-400 text-sm transition-colors">23r11a0562@gcet.edu.in</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-850 border border-slate-800 flex items-center justify-center">
+                                <i data-lucide="mail-check" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-400 uppercase font-semibold">Personal Email</h4>
+                                <a href="mailto:anoognagunjari@gmail.com" class="text-slate-200 hover:text-brand-400 text-sm transition-colors">anoognagunjari@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-850 border border-slate-800 flex items-center justify-center">
+                                <i data-lucide="phone" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-400 uppercase font-semibold">Phone</h4>
+                                <a href="tel:+918099504111" class="text-slate-200 hover:text-brand-400 text-sm transition-colors">+91 8099504111</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-center bg-brand-850 border border-slate-800 p-8 rounded-2xl">
+                    <h3 class="font-display text-lg font-bold text-slate-100 mb-6">Coding Profiles & Social Networks</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="https://linkedin.com/in/anoogna-gunjari-885442294" target="_blank" class="flex items-center gap-3 p-4 bg-brand-900 border border-slate-800 hover:border-brand-500/50 rounded-xl transition-all group">
+                            <div class="p-2 bg-brand-850 rounded group-hover:bg-brand-500/10 transition-colors">
+                                <i data-lucide="linkedin" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-300">LinkedIn</span>
+                        </a>
+
+                        <a href="https://github.com/AnoognaGunjari" target="_blank" class="flex items-center gap-3 p-4 bg-brand-900 border border-slate-800 hover:border-brand-500/50 rounded-xl transition-all group">
+                            <div class="p-2 bg-brand-850 rounded group-hover:bg-brand-500/10 transition-colors">
+                                <i data-lucide="github" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-300">GitHub</span>
+                        </a>
+
+                        <a href="https://leetcode.com" target="_blank" class="flex items-center gap-3 p-4 bg-brand-900 border border-slate-800 hover:border-brand-500/50 rounded-xl transition-all group">
+                            <div class="p-2 bg-brand-850 rounded group-hover:bg-brand-500/10 transition-colors">
+                                <i data-lucide="code" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-300">LeetCode</span>
+                        </a>
+
+                        <a href="https://hackerrank.com" target="_blank" class="flex items-center gap-3 p-4 bg-brand-900 border border-slate-800 hover:border-brand-500/50 rounded-xl transition-all group">
+                            <div class="p-2 bg-brand-850 rounded group-hover:bg-brand-500/10 transition-colors">
+                                <i data-lucide="terminal" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-300">HackerRank</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-brand-950 border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <p>&copy; 2026 Gunjari Anoogna. All rights reserved.</p>
+            <p>Designed as part of the student portfolio series.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Responsive Hamburger Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        // Close mobile menu on clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // Reveal Timeline Items on Scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.timeline-item');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            items.forEach(item => observer.observe(item));
+        });
+    </script>
+</body>
+</html>
